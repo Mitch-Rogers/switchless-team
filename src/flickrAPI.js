@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './flickrAPI.css';
 import Tiles from './Tiles.js';
+import SearchBar from './searchBar.js';
 
 class App extends Component {
   render() {
@@ -12,9 +13,7 @@ class App extends Component {
           <h2>Flickr API</h2>
         </div>
         <Tiles/>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <SearchBar />
       </div>
     );
   }

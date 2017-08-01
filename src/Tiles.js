@@ -30,7 +30,7 @@ class Tiles extends Component {
   render() {
 
     return (
-      <h1>j</h1>
+      <p></p>
     )
   }
 }
