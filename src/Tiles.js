@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 const jsonp = require('jsonp');
 
-const apiUrl = "http://api.flickr.com/services/feeds/photos_public.gne?format=json"
+const apiUrl = " https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=7c9469e15a26e98a968eb4a9580f132d&format=json&nojsoncallback=1&api_sig=cfdab2c37609291658b71d52903f3b28"
 const jsonFlickrFeed = {}
 class Tiles extends Component {
 
@@ -30,14 +30,11 @@ class Tiles extends Component {
 
 
 
-    jsonp(apiUrl, null, function (err, data) {
-  if (err) {
-    console.error(err.message, "errrror");
-  } else {
-    console.log(data, "data");
-  }
-});
-
+    fetch(apiUrl).then(function (response) {
+      return response.json().then(function(data) {
+      console.log(data)
+    })
+  })
 
 
 
