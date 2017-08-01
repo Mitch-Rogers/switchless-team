@@ -25,6 +25,7 @@ class Tiles extends Component {
       console.log(data)
     })
   })
+}
 
   render() {
 
@@ -33,5 +34,6 @@ class Tiles extends Component {
     )
   }
 }
+
 
 export default Tiles
