@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import fetch-jsonp from 'fetch-jsonp';
+require('es6-promise').polyfill();
 
 const apiUrl = "https://api.flickr.com/services/feeds/photos_public.gne?format=json"
 
@@ -27,8 +28,8 @@ class Tiles extends Component {
   getJson() {
 
     // Make a request for a user with a given ID
-axios.get(apiUrl)
-  .then(function (response) {
+    fetchJsonp(apiUrl)
+    .then(function (response) {
     console.log(response, "json response");
 
   })
