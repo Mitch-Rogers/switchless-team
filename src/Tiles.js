@@ -1,21 +1,45 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
-const apiUrl = "https://api.flickr.com/services/feeds/photos_public.gne?format=json"
+const jsonp = require('jsonp');
 
+const apiUrl = "http://api.flickr.com/services/feeds/photos_public.gne?format=json"
+const jsonFlickrFeed = {}
 class Tiles extends Component {
 
   constructor () {
     super()
     this.state = {
-      newJson: null
+      newJson: null,
+      jsonFlickFeed: {}
     }
   }
 
+
+
+  _jp0() {
+    return (
+      <h2>hello</h2>
+    )
+  }
+
   componentDidMount() {
-    this.getJson()
-  //  console.log(this.state.newJson, "json")
-    console.log("test")
+  //   this.getJson()
+  // //  console.log(this.state.newJson, "json")
+  //   console.log("test")
+
+
+
+    jsonp(apiUrl, null, function (err, data) {
+  if (err) {
+    console.error(err.message, "errrror");
+  } else {
+    console.log(data, "data");
+  }
+});
+
+
+
 
     // fetch(apiUrl)
     //   .then(function (response) {
@@ -24,20 +48,25 @@ class Tiles extends Component {
   }
 
 
+
+
+
   getJson() {
+    // const x = jsonp(apiUrl, {x})
+    // console.log(x, "responseee")
 
-    // Make a request for a user with a given ID
-axios.get(apiUrl)
-  .then(function (response) {
-    console.log(response, "json response");
-
-  })
-  .catch(function (error) {
-    console.log(error, "*ERROR*");
-  });
+//     // Make a request for a user with a given ID
+// axios.get(apiUrl, {'Access-Control-Allow-Origin': '*'})
+//   .then(function (response) {
+//     console.log(response, "json response");
+//
+//   })
+//   .catch(function (error) {
+//     console.log(error, "*ERROR*");
+//   });
     // const request = new XMLHttpRequest()
     //   request.open('GET', apiUrl, true)
-    //       request.setRequestHeader('Content-Type', 'json; charset=UTF-8')
+    //       request.setRequestHeader('Access-Control-Allow-Credentials', 'json; charset=UTF-8')
     //         request.send();
     //       //this callback gets called when the server responds to the ajax call
     //       request.onreadystatechange = function(){
@@ -59,7 +88,7 @@ axios.get(apiUrl)
   render() {
 
     return (
-      <h1></h1>
+      <h1>j</h1>
     )
   }
 }
